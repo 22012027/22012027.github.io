@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <title>Home</title>
         <meta charset="UTF-8">
@@ -16,6 +15,21 @@
                 font-size: 20px;
                 text-align: center;
                 padding: 70px;
+            }
+
+            #picture {
+                box-shadow: 0 0 50px blueviolet;
+            }
+
+            #picture:hover {
+                animation: spin 1s linear infinite;
+                transform: scale(1.05);
+                transition:transform 0.3s;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
         </style>
     </head>
@@ -48,7 +62,7 @@
 
         <div class="container">
             <div class="column">
-                <img src="IMG-8071.JPG" alt="picture" style="width: 250px; height: 350px; display: block; margin-right: auto; margin-left: auto">
+                <img id="picture" src="IMG-8071.JPG" alt="picture" style="width: 250px; height: 350px; display: block; margin-right: auto; margin-left: auto">
             </div>
             <div class="column">
                 <b>HELLO! I am Jan</b>
@@ -56,6 +70,16 @@
                 I am a Year 2 student currently studying in Digital Design and Development (DDDD) in Republic Polytechnic.
             </div>
         </div>
-    </body>
 
+        <script>
+            // Anime.js animations
+            anime({
+                targets: '#picture',
+                translateY: [-50, 0],
+                opacity: [0, 1],
+                easing: 'easeInOutQuad',
+                duration: 1000
+            });
+        </script>
+    </body>
 </html>

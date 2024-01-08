@@ -20,50 +20,58 @@
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                 }
-            }
-        </style>
-    </head>
 
-    <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">Portfolio Development</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex justify-content-end" id="mynavbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutme.html">About Me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contactme.html">Contact</a>
-                        </li>
-                    </ul>
+                .glow:hover{
+                    transform: scale(1.05);
+                    transition:transform 0.3s;
+                }
+
+                .glow {
+                    box-shadow: 0 0 50px blueviolet;
+                }
+            </style>
+        </head>
+
+        <body>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">Portfolio Development</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="d-flex justify-content-end" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="aboutme.html">About Me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contactme.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <h1 style="text-align: center; font-size: 50px;">About Me</h1>
+            <h1 style="text-align: center; font-size: 50px;">ABOUT ME</h1>
 
-        <br><br>
+            <br><br>
 
-        <div class="container">
-            <div class="column">
-                <img src="IMG-8071.JPG" alt="picture" style="width: 250px; height: 350px; display: block; margin-right: auto; margin-left: auto">
+            <div class="container">
+                <div class="column">
+                    <img id="picture" src="IMG-8071.JPG" alt="picture" style="width: 250px; height: 350px; display: block; margin-right: auto; margin-left: auto" class="glow">
 
-            </div>
-            <div class="column">
-                <b>HELLO!</b>
-                <br>I am Jan.<br>
-                I am a Year 2 student currently studying in Digital Design and Developement (DDDD) in Republic Polytechnic. I am in a Frisbee CCA in school. I like to sleep, watch shows and traveling around the world.
-            </div>
-        </div>
-    </body>
-</html>
+                    </div>
+                    <div class="column">
+                        <b>HELLO!</b>
+                        <br>I am Jan.<br>
+                        I am a Year 2 student currently studying in Digital Design and Developement (DDDD) in Republic Polytechnic. I am in a Frisbee CCA in school. I like to sleep, watch shows and traveling around the world.
+                    </div>
+                </div>
+            </body>
+        </html>
