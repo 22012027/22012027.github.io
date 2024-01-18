@@ -18,11 +18,87 @@
                 text-align: center;
                 padding: 70px;
             }
-            
-            .heading {
+
+            .header {
+                border-bottom: 1px solid #E2E8F0;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1000; 
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 1.5rem;
+                background-color: blueviolet;
+            }
+
+            .nav-menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-item {
+                margin-left: 5rem;
+            }
+
+            .nav-link {
+                font-size: 1.3rem;
+                font-weight: 400;
                 color: white;
             }
-            
+
+            .nav-link:hover {
+                color: black;
+            }
+
+            .nav-logo {
+                font-size: 2.1rem;
+                font-weight: 500;
+            }
+
+            @media only screen and (max-width: 768px) {
+                .nav-menu {
+                    position: fixed;
+                    left: -100%;
+                    top: 5rem;
+                    flex-direction: column;
+                    background-color: #fff;
+                    width: 100%;
+                    border-radius: 10px;
+                    text-align: center;
+                    transition: 0.3s;
+                    box-shadow:
+                        0 10px 27px rgba(0, 0, 0, 0.05);
+                }
+
+                .nav-menu.active {
+                    left: 0;
+                    z-index: 999;
+                }
+
+                .nav-item {
+                    margin: 2.5rem 0;
+                }
+            }
+
+            .heading {
+                color: white;
+                margin-top: 50px;
+            }
+
             .heading:hover {
                 font-weight: bold;
                 color: blueviolet;
@@ -33,15 +109,11 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .glow:hover{
-                transform: scale(1.05);
-                transition:transform 0.3s;
+            .carousel-inner img {
+                width: 100%;
+                height: 100%;
             }
 
-            .glow {
-                box-shadow: 0 0 50px blueviolet;
-            }
-            
             .footer .copyright {
                 margin-top: 50px;
                 text-align: center;
@@ -52,50 +124,95 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">Portfolio Development</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex justify-content-end" id="mynavbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutme.html">About Me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contactme.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <header class="header">
+            <nav class="navbar">
+                <a href="index.html">
+                    <div class="logo">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" width="50" height="50" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                        <path d="M0,0.152C33.029,0.101,66.058,0.051,99.086,0c0.303,22.019,0.606,44.039,0.909,66.058
+                              C100.37,84.649,77.605,100.042,49.998,100C22.563,99.958-0.02,84.686,0.227,66.21c8.181,0.101,16.363,0.203,24.544,0.304
+                              c0.124,9.127,11.371,16.591,24.999,16.591s24.874-7.464,24.999-16.591c0.076-16.489,0.152-32.978,0.227-49.467
+                              C49.998,16.996,24.999,16.946,0,16.895C0,11.314,0,5.733,0,0.152z"/>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="aboutme.html" class="nav-link">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="portfolio.html" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contactme.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
         <h1 class="heading" style="text-align: center; font-size: 50px;">ABOUT ME</h1>
 
         <br><br>
 
         <div class="container">
-            <div class="column">
-                <img id="picture" src="IMG-8071.JPG" alt="picture" style="width: 250px; height: 350px; display: block; margin-right: auto; margin-left: auto" class="glow">
 
+            <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                </div>
+
+                <!-- The slide-show/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="IMG-8071.JPG" class="d-block w-100" alt="Picture 1" style="width: 350px; height: 500px; display: block; margin-right: auto; margin-left: auto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="group.JPG" class="d-block w-100" alt="frisbee group" style="width: 500px; height: 350px; display: block; margin-right: auto; margin-left: auto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="line 2.JPG" class="d-block w-100" alt="D-line team" style="width: 350px; height: 500px; display: block; margin-right: auto; margin-left: auto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="busan.JPG" class="d-block w-100" alt="busan" style="width: 350px; height: 500px; display: block; margin-right: auto; margin-left: auto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="palace.JPG" class="d-block w-100" alt="palace" style="width: 350px; height: 500px; display: block; margin-right: auto; margin-left: auto">
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
+
             <div class="column">
-                <b>HELLO!</b>
-                <br>I am Jan.<br>
-                I am a Year 2 student currently studying in Digital Design and Developement (DDDD) in Republic Polytechnic. 
+                <b>HELLO! I am Jan</b>
+                <br>
+                I am a Year 2 student currently studying in Digital Design and Develop  ment (DDDD) in Republic Polytechnic.  
+                This course involves a combination of theoretical knowledge and practical skills in various aspects of digital design and development, such as web development, graphic design, and programming. 
                 I am in a Frisbee CCA in school. 
-                During my free time, I like to sleep and watch shows.
-                I love to travel around the world.
+                Being in a sports-based CCA not only promotes physical fitness but also promotes teamwork, communication, and leadership skills. 
+                During my free time, I like to sleep as having enough rest is essential for overall well-being and can contribute to better focus and productivity
+                I love to travel around the world as I get to explore different cultures, landscapes, and experiences.
+                Traveling broadens one's perspective, introduces new perspectives, and can be a source of inspiration. 
+                It also provides opportunities to meet new people, try different cuisines, and create lasting memories.
             </div>
         </div>
-        
+
         <section class="footer">
             <p class="copyright">
                 Portfolio Development © 2024 | Jan Ling
